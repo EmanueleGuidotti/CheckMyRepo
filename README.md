@@ -1,2 +1,2 @@
 # CheckMyRepo
-Send a Github link to a Telegram account
+Send a GitHub link to a Telegram account
