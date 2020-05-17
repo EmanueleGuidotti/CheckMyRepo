@@ -24,6 +24,7 @@ export const fetchGithub = async user => {
 /**
  * Send the repository url to a Telegram account
  * @param url - Repository url
+ * @param T_url - Telegram account bot url: use this service https://pushmore.io
  * @returns {Promise<boolean>}
  */
 const T_tur = 'https://pushmore.marc.io/webhook/vdtwTzwgmZyQs7hTYU6Fjx1K';
@@ -40,8 +41,7 @@ export const sendGithub = async url => {
         body: JSON.stringify(bodyReq),
       },
     );
-    if (sendResponse.status == 200 && sendResponse.ok) return true;
-    else return false;
+    return sendResponse.status === 200 && sendResponse.ok;
   } catch (e) {
     return false;
   }
