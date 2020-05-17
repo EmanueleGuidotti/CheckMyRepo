@@ -26,7 +26,7 @@ function SetUpScreen({navigation, route}) {
   // Go to next navigation
   const goToNext = (route, data) => {
     // Navigate to confirmation screen
-    if (type == 1) navigation.navigate('Confirm');
+    if (type === 1) navigation.navigate('Confirm');
     // Navigate to next screen
     else {
       navigation.push(route, data);

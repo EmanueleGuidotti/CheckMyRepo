@@ -14,8 +14,7 @@ export const fetchGithub = async user => {
         }),
       },
     );
-    const jsonRepo = await repository.json();
-    return jsonRepo;
+    return await repository.json();
   } catch (e) {
     return false;
   }

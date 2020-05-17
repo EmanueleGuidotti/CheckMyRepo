@@ -107,20 +107,20 @@ function ConfirmScreen({navigation, route}) {
   console.log('sendUrlResponse: ', sendUrlResponse);
 
   const errorClass = uiError || connectionError ? styles.viewError : null;
-  const successClass = sendUrlResponse == 2 && styles.viewSuccess;
+  const successClass = sendUrlResponse === 2 && styles.viewSuccess;
 
   return (
     <ViewScrollWrapper>
       <StatusBar barStyle="dark-content" />
       <View style={[styles.pageContainer, errorClass, successClass]}>
         <RepoUrl username={state.username} repo={state.repo} />
-        {uiError && sendUrlResponse == 1 && (
+        {uiError && sendUrlResponse === 1 && (
           <UiMessage
             messageType={styles.viewError}
             messageText={'Error sending url! Please retry later!'}
           />
         )}
-        {uiError && sendUrlResponse == 0 && !connectionError && (
+        {uiError && sendUrlResponse === 0 && !connectionError && (
           <UiMessage
             messageType={styles.viewError}
             messageText={'Error with data! Check username or repository name'}
@@ -134,7 +134,7 @@ function ConfirmScreen({navigation, route}) {
             }
           />
         )}
-        {sendUrlResponse == 2 && (
+        {sendUrlResponse === 2 && (
           <UiMessage
             messageType={styles.viewSuccess}
             messageText={'Success! Repository was sent!'}
@@ -145,9 +145,9 @@ function ConfirmScreen({navigation, route}) {
         style={[
           styles.pageFooter,
           uiError && styles.viewError,
-          sendUrlResponse == 2 && styles.viewSuccess,
+          sendUrlResponse === 2 && styles.viewSuccess,
         ]}>
-        {sendUrlResponse == 0 && (
+        {sendUrlResponse === 0 && (
           <Button
             large
             disabled={!repoUrl}
@@ -158,7 +158,7 @@ function ConfirmScreen({navigation, route}) {
             <Text>send</Text>
           </Button>
         )}
-        {sendUrlResponse == 2 && (
+        {sendUrlResponse === 2 && (
           <Button
             large
             disabled={!repoUrl}
