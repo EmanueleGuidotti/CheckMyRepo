@@ -1,3 +1,8 @@
+/**
+ * Check existence of a GitHub account
+ * @param user - GitHub username
+ * @returns {Promise<boolean|any>} - Repository urls
+ */
 export const fetchGithub = async user => {
   try {
     const repository = await fetch(
@@ -16,6 +21,12 @@ export const fetchGithub = async user => {
   }
 };
 
+/**
+ * Send the repository url to a Telegram account
+ * @param url - Repository url
+ * @returns {Promise<boolean>}
+ */
+const T_tur = 'https://pushmore.marc.io/webhook/vdtwTzwgmZyQs7hTYU6Fjx1K';
 export const sendGithub = async url => {
   try {
     const bodyReq = {
@@ -23,7 +34,7 @@ export const sendGithub = async url => {
       sender: 'Emanuele Guidotti',
     };
     const sendResponse = await fetch(
-      'https://pushmore.marc.io/webhook/vdtwTzwgmZyQs7hTYU6Fjx1K',
+      T_tur,
       {
         method: 'POST',
         body: JSON.stringify(bodyReq),
